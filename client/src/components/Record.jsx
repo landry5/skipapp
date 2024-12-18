@@ -20,7 +20,7 @@ export default function Record() {
       if (!id) return;
       setIsNew(false);
       const response = await fetch(
-        `http://localhost:5050/record/${params.id.toString()}`
+        `https://skipapp.onrender.com/record/${params.id.toString()}`
       );
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -51,7 +51,7 @@ export default function Record() {
     try {
       let response;
       if (isNew) {
-        response = await fetch('http://localhost:5050/record', {
+        response = await fetch('https://skipapp.onrender.com/record', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export default function Record() {
           body: JSON.stringify(person),
         });
       } else {
-        response = await fetch(`http://localhost:5050/record/${params.id}`, {
+        response = await fetch(`https://skipapp.onrender.com/record/${params.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ export default function Record() {
     formData.append('image', imageFile); // Assuming your backend expects this field name
   
     try {
-      const response = await fetch('http://localhost:5050/upload', {
+      const response = await fetch('https://skipapp.onrender.com/upload', {
         method: 'POST',
         body: formData,
       });

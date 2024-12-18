@@ -42,7 +42,7 @@ export default function ObjectMap() {
   useEffect(() => {
     async function getRecords() {
       try {
-        const response = await fetch(`http://localhost:5050/record/`);
+        const response = await fetch(`https://skipapp.onrender.com/record/`);
         if (!response.ok) {
           const message = `An error occurred: ${response.statusText}`;
           console.error(message);
@@ -91,7 +91,7 @@ export default function ObjectMap() {
         level: 'Inquired'  // Only update the level
       };
 
-      const response = await fetch(`http://localhost:5050/record/${record._id}`, {
+      const response = await fetch(`https://skipapp.onrender.com/record/${record._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
